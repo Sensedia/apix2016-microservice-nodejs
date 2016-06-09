@@ -237,7 +237,7 @@ var SensediaCoinsAPI = function () {
                 });
         });
         
-        /* consultar conta por id da pessoa */
+        /* consultar conta por id da pessoa */ 
         self.app.get("/clientes/:pessoa_id(\\d+)/contas/", function (req, res) {
             res.setHeader('Content-Type', 'json');
 
@@ -256,7 +256,7 @@ var SensediaCoinsAPI = function () {
                 })
                 .catch(function (erro) {
                     res.status(500).send({mensagem: 'Ocorreu um erro inesperado ao consultar conta. Trace: ' + erro});
-                });
+        });
         });
 
         /* consultar movimentacoes da conta  */
