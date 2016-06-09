@@ -1,0 +1,109 @@
+{
+	"id": "32f27fee-c6ad-d150-63e6-5a9952cdcf26",
+	"name": "APIX_2016_Contas",
+	"description": "Cenários de testes para o microservice de Contas para o APIX 2016.",
+	"order": [
+		"e69fe69d-0aa7-a016-9b5a-d5f234729d9b",
+		"7ccbe005-6f66-c39b-9688-9849df9451d3",
+		"04f38756-380c-e971-e5b2-9aa6311fd4dd",
+		"8ae9e18f-2c35-3d50-b6e4-2986fe027908"
+	],
+	"folders": [],
+	"timestamp": 1465389575775,
+	"owner": "192014",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "04f38756-380c-e971-e5b2-9aa6311fd4dd",
+			"headers": "client_id: {{client_id}}\nContent-Type: application/json\n",
+			"url": "{{url}}/{{numero}}/movimentacoes",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465451419569,
+			"name": "Buscar movimentacoes por conta",
+			"description": "Busca as movimentações para uma determinada conta",
+			"collectionId": "32f27fee-c6ad-d150-63e6-5a9952cdcf26",
+			"responses": [],
+			"rawModeData": "{\n    \"conta_destino\" : \"36867\",\n    \"valor\": 1\n}"
+		},
+		{
+			"id": "7ccbe005-6f66-c39b-9688-9849df9451d3",
+			"headers": "client_id: {{client_id}}\n",
+			"url": "{{url}}/{{numero}}",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465451406037,
+			"name": "Buscar conta",
+			"description": "Buscar uma determinada conta por numero",
+			"collectionId": "32f27fee-c6ad-d150-63e6-5a9952cdcf26",
+			"responses": []
+		},
+		{
+			"id": "8ae9e18f-2c35-3d50-b6e4-2986fe027908",
+			"headers": "client_id: {{client_id}}\nContent-Type: application/json\n",
+			"url": "{{url}}/{{numero}}/movimentacoes",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465451437537,
+			"name": "Realizar movimentação",
+			"description": "Realiza a movimentação da conta de origem para o conta de destino.",
+			"collectionId": "32f27fee-c6ad-d150-63e6-5a9952cdcf26",
+			"responses": [],
+			"rawModeData": "{\n    \"conta_destino\" : \"36867\",\n    \"valor\": 1\n}"
+		},
+		{
+			"id": "e69fe69d-0aa7-a016-9b5a-d5f234729d9b",
+			"headers": "client_id: {{client_id}}\n",
+			"url": "{{url}}",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "conta_destino",
+					"value": "62842",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "valor",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Response time is less than 400ms\"] = responseTime < 400;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1465451329407,
+			"name": "Listar contas",
+			"description": "Listar todas as contas",
+			"collectionId": "32f27fee-c6ad-d150-63e6-5a9952cdcf26",
+			"responses": []
+		}
+	]
+}
