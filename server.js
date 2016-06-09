@@ -28,7 +28,7 @@ var SensediaCoinsAPI = function () {
         self.senhaDB = process.env.OPENSHIFT_MYSQL_DB_PASSWORD;
         self.hostDB = process.env.OPENSHIFT_MYSQL_DB_HOST;
         self.portDB = process.env.OPENSHIFT_MYSQL_DB_PORT;
-        self.database = "apix";
+        self.database = process.env.OPENSHIFT_APP_NAME;
 
         self.sequelize = new Sequelize(self.database, self.userDB, self.senhaDB, {
             host: self.hostDB,
