@@ -236,6 +236,28 @@ var SensediaCoinsAPI = function () {
                     res.status(500).send({mensagem: 'Ocorreu um erro inesperado ao consultar conta ' + numero + '. Trace: ' + erro});
                 });
         });
+        
+        /* consultar conta por id da pessoa */
+        self.app.get("/clientes/:pessoa_id(\\d+)/contas/", function (req, res) {
+            res.setHeader('Content-Type', 'json');
+
+            var pessoa_id = req.params.pessoa_id;
+            self.Conta.findOne({where: {pessoa_id: pessoa_id}})
+                .then(function (conta) {
+                    if (!conta) {
+                        res.status(404).send({mensagem: 'Pessoa não localizada!'});
+                    } else {
+                        var resConta = conta.dataValues;
+                        resConta.links = [];
+                        resConta.links.push(new Link("self", req.originalUrl));
+                        resConta.links.push(new Link("movimentacoes", req.originalUrl + "/movimentacoes"));
+                        res.json(resConta);
+                    }
+                })
+                .catch(function (erro) {
+                    res.status(500).send({mensagem: 'Ocorreu um erro inesperado ao consultar conta. Trace: ' + erro});
+                });
+        });
 
         /* consultar movimentacoes da conta  */
         self.app.get("/contas/:numero(\\d+)/movimentacoes", function (req, res) {
