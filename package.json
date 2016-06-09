@@ -1,7 +1,7 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "SensendiaCoinsAPI",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "description": "Sensedia Coins API",
   "keywords": [
     "OpenShift",
     "Node.js",
@@ -18,18 +18,18 @@
     "type": "git",
     "url": "https://github.com/openshift/origin-server"
   },
-
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
   },
-
   "dependencies": {
-    "express": "~3.4.4"
+    "express": "~3.4.4",
+    "mysql": "^2.11.0",
+    "request": "^2.72.0",
+    "sequelize": "^3.23.3"
   },
   "devDependencies": {},
   "bundleDependencies": [],
-
   "private": true,
   "main": "server.js"
 }
