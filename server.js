@@ -238,7 +238,7 @@ var SensediaCoinsAPI = function () {
         });
         
         /* consultar conta por id da pessoa */ 
-        self.app.get("/clientes/:pessoa_id(\\d+)/contas/", function (req, res) {
+        self.app.get("/clientes/:pessoa_id(\\d+)/contas", function (req, res) {
             res.setHeader('Content-Type', 'json');
 
             var pessoa_id = req.params.pessoa_id;
